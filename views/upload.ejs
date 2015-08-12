@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+<div class="navbar navbar-inverse navbar-fixed-top custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pramati Technologies</a>
+    </div>
+
+   <ul class="nav navbar-nav navbar-right">
+    <li><a href="/reports">Reports</a></li>
+    <li><p class="navbar-text">|</p></li>
+    <li><p class="navbar-text">Welcome <%= user.displayName %><span>|</span> <a href="/auth/logout" class="navbar-link">Logout</a></p></li>
+    </ul>
+  </div>
+</div>  
+
+
+
+<div class="container csvwrapper">
+  <div class="row">
+    <div class="span12">
+      <div class="shadow">
+        <h2>Upload your csv file here</h2>
+        <div class="csv-form">
+          <form  id="uploadForm" enctype='multipart/form-data'>
+              <div class="form-group">
+                  <label for="inputName">Name</label>
+                  <span class="name-alert">(The name should have at least 3 letters.)</span>
+                  <input type="text" class="form-control" name="username" id="inputname" placeholder="Name">
+              </div>
+              <div class="form-group">
+                  <label for="inputEmail">Email</label>
+                  <span class="email-alert">(Please enter valid email.)</span>
+                  <input type="text" class="form-control" id="inputemail" name="email" placeholder="Email">
+              </div>
+
+              <div class="form-group">
+              <div id="alert" class="alert-warning" role="alert">This file does not seem to be a CSV. Please upload a csv file</div>
+                <span class="btn btn-default btn-file">
+                    <input type="file" name="userfile" id="fileInput" >
+                </span>
+
+              </div>
+              <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+          <div class="alert alert-success" role="alert" id="success"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">All Rights Reserved. © 2015.</p>
+      </div>
+    </footer>
+<script src="/javascripts/lib/jquery-2.1.4.js"></script>
+<script src="/javascripts/custom.js"></script>
+</body>
+
+</html>

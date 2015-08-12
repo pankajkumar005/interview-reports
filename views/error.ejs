@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.min.css">
+	<style>
+		.error {
+			width: 700px;
+			margin: 50px auto;
+			text-align: center;
+			border: 1px solid #4072B4;
+ 			padding-bottom: 10px;
+		}
+		.error h2 {
+			color: #fff;
+		    background: #4072b4;
+		    border-color: #153652;
+		    font-size: 20px;
+		    margin: 0;
+		    padding: 15px;
+		}
+	</style>
+</head>
+<body>
+
+<!-- <h2><%= error.status %></h2>
+<pre><%= error.stack %></pre> -->
+	<div class="container csvwrapper">
+  <div class="row">
+    <div class="span12">
+    	<div class="error">
+    		<h2>Unauthorized</h2>
+			<div class="content">
+				<h3><%= message %></h2>
+				<p>Check the credentials that you supplied and logout from the current google account and try again.<br><br>
+				<a href="/">Go to Home.</a>
+				</p>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

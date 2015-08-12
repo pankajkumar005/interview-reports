@@ -1,0 +1,12 @@
+Job Candidate Tracker Reports  -- In developement mode
+    
+Prerequiisites to start this app:
+    node and mongodb should be available on your machine.
+
+running this application
+    1. install all the required node modules with the below command:
+        -> npm install
+    2. starting http server
+        -> npm start
+    3. Now hit the below url in the browser to see the page.
+        -> http://localhost:3000/

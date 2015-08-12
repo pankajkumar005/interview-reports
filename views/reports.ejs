@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+  
+	<link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/jquery/datepicker.css">
+</head>
+<body>
+<textarea id="intData" style="display:none;"><%=JSON.stringify(data.data)%></textarea>
+<textarea id="techData" style="display:none;"><%=JSON.stringify(techJson.technology)%></textarea>
+
+<div class="navbar navbar-inverse navbar-fixed-top custom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Pramati Technologies</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">    
+            <li><a href="/upload">Upload</a></li>
+            <li>
+                <p class="navbar-text">|</p>
+            </li>
+            <li>
+                <p class="navbar-text">Welcome
+                    <%=user.displayName %><span>|</span> <a href="/auth/logout" class="navbar-link">Logout</a></p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container main-wrapper">
+    <div class="row">
+        <div class="span12">
+            <h3 class="main-header">Job Candidate Tracker - Reports</h3>
+            <div id="main">
+                <div class="ui-widget-header ui-corner-top">
+                    <ul>
+                        <li><a href="#tabs-1">Overall Results</a></li>
+                        <li><a href="#tabs-2">Interviewers Ratio Results</a></li>
+                        <li><a href="#tabs-3">Each Interviewer Results</a></li>
+                    </ul>
+                </div>
+                <div id="tabs-1" class="tabs3">
+                    <div class="container rp-wrapper">
+                        <div class="row">
+                            <div class="col-md-4 rpfilter-col">
+                                <h4 class="rp-header">Filter by Date Range  </h4>
+                                <form id="report1-tracker">
+                                    <div class="rp-label">From</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker" value="01/01/2015" />
+                                    </div>
+                                    <div class="rp-label">To</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker1">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker1" value="06/15/2015" />
+                                    </div>
+                                    <div class="rp-label">Overall Recommendation (Based on 1st Round)</div>
+                                    <div class="form-group">
+                                        <label for="inputRmd">
+                                            <b>>=</b>
+                                            <input type="number" id="rp1-inputRmd" name="inputRmd" min="3" max="5" value="3" />
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="submit" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="uv-div"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tabs-2" class="tabs3">
+                    <div class="container rp-wrapper">
+                        <div class="row">
+                            <div class="col-md-4 rpfilter-col">
+                                <form action="#" id="report2-tracker">
+                                    <div class="rp-label">From</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker2">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker2" />
+                                    </div>
+                                    <div class="rp-label">To</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker3">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker3" />
+                                    </div>
+                                    <div class="rp-label">Overall Recommendation (Based on 1st Round)</div>
+                                    <div class="form-group">
+                                        <label for="inputRmd1">
+                                            <b>>=</b>
+                                            <input type="number" id="rp2-inputRmd" name="inputRmd1" min="3" max="5" value="3" />
+                                        </label>
+                                    </div>
+                                    <!-- <div class="rp-label">Technology</div>
+                                        <div class="form-group">
+                                            <select class="form-control" na me="technology">
+                                                <option>select</option>
+                                                <option>Java</option>
+                                                <option>QA</option>
+                                                <option>.NET</option>
+                                                <option>UI</option>
+                                            </select>
+                                        </div> -->
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="uv-div1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tabs-3" class="tabs3">
+                    <div class="container rp-wrapper">
+                    <div class="row">
+                            <div class="col-md-4 rpfilter-col">
+                                <form action="#" id="report3-tracker">
+                                    <div class="rp-label">From</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker4">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker4" />
+                                    </div>
+                                    <div class="rp-label">To</div>
+                                    <div class="form-group input-group">
+                                        <label class="input-group-btn" for="datepicker5">
+                                            <span class="btn btn-default">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control date-input" id="datepicker5" />
+                                    </div>
+                                    <div class="rp-label">Interviewerer</div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="panel-names" name="panelNames">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="uv-div2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">All Rights Reserved. © 2015.</p>
+  </div>
+</footer>
+  
+
+<script src="/javascripts/lib/jquery-2.1.4.js"></script>
+<script src="/javascripts/lib/jquery-ui.min.js"></script> 
+<script src="/javascripts/lib/d3.min.js"></script>
+<script src="/javascripts/lib/uvcharts.min.js"></script>
+<script src="/javascripts/UVChartsUtil.js"></script>
+<script src="/javascripts/ReportsUtil.js"></script>
+<script src="/javascripts/reports.js"></script>
+</body>	
+</html>
