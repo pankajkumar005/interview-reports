@@ -1,0 +1,18 @@
+{
+    "emailsettings": {
+        "auth": {
+
+            "name": "<name>",
+            "email": "id1@<gmail>.com",
+            "pass": "<pasw>"
+
+        },
+        "receivers": ["id1@<gmail>.com"]
+
+    },
+    "google": {
+        "reservedIds": ["id1@<gmail>.com", "id2@<gmail>.com"],
+        "clinet_ID": "<key>.apps.googleusercontent.com",
+        "client_secret": "<key1>"
+    }
+}
